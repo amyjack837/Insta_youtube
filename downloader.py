@@ -5,7 +5,7 @@ from yt_dlp import YoutubeDL
 
 async def download_video(url):
     temp_id = uuid.uuid4().hex
-    output_path = f"/mnt/data/{temp_id}.%(ext)s"
+    output_path = f"/tmp/{temp_id}.%(ext)s"
     ydl_opts = {
         'format': 'best',
         'outtmpl': output_path,
@@ -19,7 +19,8 @@ async def download_video(url):
             return filename, None
     except Exception as e:
         print(f"[yt_dlp failed] {e}")
-
+    
+    # Fallback to public API
     apis = [
         f"https://saveig.app/api/ajaxSearch?url={url}",
         f"https://api.sssgram.com/api/download?url={url}"
