@@ -8,6 +8,7 @@ from downloader import download_video
 from utils import extract_links
 import os
 
+# Your bot token is embedded directly here
 BOT_TOKEN = "8063501267:AAFD5tQxlGwtUWNatkv4DEe8uP2CtMJWQUM"
 
 logging.basicConfig(level=logging.INFO)
