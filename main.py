@@ -1,3 +1,4 @@
+import os
 import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.enums import ParseMode
@@ -6,10 +7,8 @@ from aiogram.filters import CommandStart
 from aiogram import F
 from downloader import download_video
 from utils import extract_links
-import os
 
-# Your bot token is embedded directly here
-BOT_TOKEN = "8063501267:AAFD5tQxlGwtUWNatkv4DEe8uP2CtMJWQUM"
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # Read from environment variable
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=BOT_TOKEN)
